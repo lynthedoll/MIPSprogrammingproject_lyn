@@ -100,5 +100,11 @@ end_process_substring:
     la $a0, sum_label
     syscall
 
+    li $v0, 1
+    move $a0, $t1
+    syscall
+
+    # return from subroutine
+    jr $ra
 
 
