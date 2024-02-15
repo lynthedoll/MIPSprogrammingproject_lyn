@@ -80,5 +80,9 @@ set_negative_flag:
     li $t6, -1
     j next_iteration
 
+process_current_number:
+    mul $t4, $t4, $t6	# multiply the number by the sign flag (1 for positive, -1 for negative)
+    add $t1, $t1, $t4	# accumulates the sum
+
 
 
