@@ -25,3 +25,13 @@ main:
     # exits the program
     li $v0, 10
     syscall
+
+# subroutine which processes the input string
+process_whole_string:
+    # initialize variables
+    li $t0, 0       # Counter for substring index
+    li $t1, 0       # Counter for sum
+
+process_substring:
+    # load current substring address
+    add $t2, $a0, $t0
