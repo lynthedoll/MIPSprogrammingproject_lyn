@@ -1,0 +1,9 @@
+Input: C
+Input: 0/1/2/A/b/T/t/Z/?
+Input: Hello/World
+Input: 12345/67890
+Input: /1/2/3/4/5/
+Input: ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz
+Input: 123456789/abcdefghi/JKLMNOPQRSTUVW/xyz
+Input: /-1/2/-3/4/-5/
+Input: /123/456/789/
