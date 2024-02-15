@@ -54,3 +54,14 @@ calculate_sum_loop:
     lb $t3, 0($t2)	# loads current character
     beq $t3, $zero, process_current_number	# checks if current character is null terminator
 
+    # checks if the current character is a minus sign
+    li $t8, '-'
+    beq $t3, $t8, set_negative_flag
+
+    # checks if the current character is a digit
+    li $t8, '0'
+    blt $t3, $t8, next_iteration
+    li $t8, '9'
+    bgt $t3, $t8, next_iteration
+
+
