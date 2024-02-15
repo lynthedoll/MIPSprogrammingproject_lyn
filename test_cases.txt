@@ -1,5 +1,12 @@
+# test cases
+
+# single character input
 Input: C
+
+# input with multiple substrings separated by slashes
 Input: 0/1/2/A/b/T/t/Z/?
+
+# additional test cases
 Input: Hello/World
 Input: 12345/67890
 Input: /1/2/3/4/5/
