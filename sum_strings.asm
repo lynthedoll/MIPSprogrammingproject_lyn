@@ -17,3 +17,11 @@ main:
     la $a0, input_string
     li $a1, 1000   # max length to read
     syscall
+
+    # calls on process_whole_string subroutine
+    la $a0, input_string
+    jal process_whole_string
+
+    # exits the program
+    li $v0, 10
+    syscall
