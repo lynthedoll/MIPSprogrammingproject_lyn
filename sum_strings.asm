@@ -54,15 +54,41 @@ calculate_sum_loop:
     lb $t3, 0($t2)	# loads current character
     beq $t3, $zero, process_current_number	# checks if current character is null terminator
 
-    # checks if the current character is a minus sign
-    li $t8, '-'
-    beq $t3, $t8, set_negative_flag
+    # my Howard ID: 02995610
+    # calculate N and M
+    li $t0, 2995610
+    li $t1, 11
+    div $t0, $t1      # X % 11
+    mfhi $t2
+    li $t3, 26
+    add $t4, $t2, $t3 # N = 26 + (X % 11)
+    li $t5, 10
+    sub $t6, $t4, $t5 # M = N - 10
 
-    # checks if the current character is a digit
-    li $t8, '0'
-    blt $t3, $t8, next_iteration
-    li $t8, '9'
-    bgt $t3, $t8, next_iteration
+    # defines the characters β and Δ based on M
+    li $t7, 2
+    add $t8, $t4, $t7   # β = M + 2
+    li $t9, 3
+    add $t10, $t4, $t9  # Δ = M + 3
+
+    # checks if current character is between '0' to '9', 'a' to β, or 'A' to Δ
+    blt $t3, '0', next_iteration
+    bgt $t3, '9', check_lowercase
+    j accumulate_number
+
+    check_lowercase:
+    bge $t3, 'a', check_uppercase
+    blt $t3, $t8, next_iteration   # skip characters between '0' to '9'
+    j accumulate_number
+
+    check_uppercase:
+    bge $t3, 'A', skip_special_characters
+    blt $t3, $t10, next_iteration  # skip characters between 'a' to β
+    j accumulate_number
+
+    skip_special_characters:
+    # skip characters between 'A' to Δ
+    bgt $t3, $t10, next_iteration
 
     # converts ASCII to integer and accumulates the number
     sub $t3, $t3, '0'   # converts ASCII to integer
