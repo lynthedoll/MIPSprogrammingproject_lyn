@@ -64,4 +64,11 @@ calculate_sum_loop:
     li $t8, '9'
     bgt $t3, $t8, next_iteration
 
+    # converts ASCII to integer and accumulates the number
+    sub $t3, $t3, '0'   # converts ASCII to integer
+    mul $t4, $t4, $t5   # multiplies existing number by 10
+    add $t4, $t4, $t3   # adds current digit to the number
+    li $t7, 1           # sets flag indicating that a number is being formed
+
+
 
