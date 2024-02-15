@@ -33,5 +33,11 @@ process_whole_string:
     li $t1, 0       # Counter for sum
 
 process_substring:
-    # load current substring address
-    add $t2, $a0, $t0
+    add $t2, $a0, $t0 # load current substring address
+    lb $t3, 0($t2) # load current character
+    beq $t3, $zero, end_process_substring # checks if current character is null terminator
+    beq $t3, delimiter, calculate_sum # checks if current character is delimiter
+
+    # increment substring index
+    addi $t0, $t0, 1
+    j process_substring
