@@ -84,5 +84,11 @@ process_current_number:
     mul $t4, $t4, $t6	# multiply the number by the sign flag (1 for positive, -1 for negative)
     add $t1, $t1, $t4	# accumulates the sum
 
+    # reset flags and accumulator for the next number
+    li $t4, 0
+    li $t5, 10
+    li $t6, 1
+    li $t7, 0
+
 
 
