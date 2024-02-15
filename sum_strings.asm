@@ -70,5 +70,15 @@ calculate_sum_loop:
     add $t4, $t4, $t3   # adds current digit to the number
     li $t7, 1           # sets flag indicating that a number is being formed
 
+next_iteration:
+    # increments substring index
+    addi $t0, $t0, 1
+    j calculate_sum_loop
+
+set_negative_flag:
+    # sets negative flag
+    li $t6, -1
+    j next_iteration
+
 
 
