@@ -90,5 +90,15 @@ process_current_number:
     li $t6, 1
     li $t7, 0
 
+    # increments substring index
+    addi $t0, $t0, 1
+    j process_substring
+
+end_process_substring:
+    # outputs the sum
+    li $v0, 4
+    la $a0, sum_label
+    syscall
+
 
 
