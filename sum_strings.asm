@@ -7,7 +7,13 @@ sum_label:      .asciiz "Sum: "  # outputs label for sum
     .globl main
 
 main:
-    # Prompt user for input string
+    # prompts the user for input string
     li $v0, 4
     la $a0, input_prompt
+    syscall
+
+    # reads input string from user
+    li $v0, 8
+    la $a0, input_string
+    li $a1, 1000   # max length to read
     syscall
