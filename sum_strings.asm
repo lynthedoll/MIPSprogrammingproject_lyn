@@ -41,3 +41,10 @@ process_substring:
     # increment substring index
     addi $t0, $t0, 1
     j process_substring
+
+calculate_sum:
+    # process the substring, calculate sum, and initialize variables
+    li $t4, 0       # accumulator for the current number
+    li $t5, 10      # multiplier for decimal places, starting at 1 (units)
+    li $t6, 1       # flag to indicate positive number (1) or negative number (-1)
+    li $t7, 0       # flag to indicate if a number is being formed (0 for no, 1 for yes)
